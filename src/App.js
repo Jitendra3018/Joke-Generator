@@ -2,6 +2,32 @@ import { useRef, useState } from 'react'
 import './App.css'
 import useRandomJoke from './useRandomJoke'
 import styled from 'styled-components'
+import { BrowserRouter as Router } from 'react-router-dom'
+
+import ProgressBar from '@badrap/bar-of-progress'
+
+const progress = new ProgressBar({
+    // The size (height) of the progress bar.
+    // Numeric values get converted to px.
+    size: 4,
+
+    // Color of the progress bar.
+    // Also used for the glow around the bar.
+    color: '#29e',
+
+    // Class name used for the progress bar element.
+    className: 'bar-of-progress',
+
+    // How many milliseconds to wait before the progress bar
+    // animation starts after calling .start().
+    delay: 80,
+})
+
+progress.start()
+
+setTimeout(() => {
+    progress.finish()
+}, 1000)
 
 function App() {
     const firstNameRef = useRef(null)
@@ -31,12 +57,14 @@ function App() {
                             // value={firstName}
                             // onChange={(e) => setFirstName(e.target.value)}
                             ref={firstNameRef}
+                            required
                         />
                         <Input
                             placeholder="Enter your Last Name"
                             // value={lastName}
                             // onChange={(e) => setLastName(e.target.value)}
                             ref={lastNameRef}
+                            required
                         />
                     </InputFeilds>
                     <Button onClick={generateJoke}>Generate Joke</Button>
