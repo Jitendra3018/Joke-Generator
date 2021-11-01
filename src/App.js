@@ -2,7 +2,6 @@ import { useRef, useState } from 'react'
 import './App.css'
 import useRandomJoke from './useRandomJoke'
 import styled from 'styled-components'
-import { BrowserRouter as Router } from 'react-router-dom'
 
 import ProgressBar from '@badrap/bar-of-progress'
 
